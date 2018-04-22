@@ -1,6 +1,4 @@
-# 主题：学员管理系统
-
-需求：
+# 学员管理系统
 
 用户角色，讲师＼学员， 用户登陆后根据角色不同，能做的事情不同，分别如下
 
@@ -20,26 +18,15 @@
      所以提交作业时需先选择班级，再选择具体上课的节数
     附加：学员可以查看自己的班级成绩排名
 ```
-# 分析：
-```
-    数据结构
-    teacher（id, name） # 教师
-    student(id, name, qq, grades) # 学生
-    grade(id, name, students) # 班级
-    grade_record(grade_id, student_id, date, task_status, score) # 一对多关系表
-    grade2student(grade_id, student_id) # 多对多关系表
-```
+
 # 目录结构
 ```
-- bin 
-    -main.py        程序入口
--core               核心代码
-    -student.py     学生的功能封装
-    -teacher.py     教师的功能封装
-    -grade.py       班级的功能封装
-    -common.py      以上三个对象公共方法
--data               数据管理
-    -init_data      数据库，初始数据添加
-    -init_database  数据库数据结构的初始化
-    -database.db    用sqlite存储数据
+-main.py            程序入口
+-core               
+    -student.py     学生的功能
+    -teacher.py     教师的功能
+    -common.py      公共功能
+    -orm            数据库数据结构
+-data               数据管理
+    -database       初始数据添加
 ```
