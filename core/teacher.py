@@ -53,7 +53,7 @@ class Teacher(object):
             return False
         return True
 
-    def modify_score(self, lesson_name, student_qq, date, score):
+    def modify_score(self, lesson_name, student_qq, score):
         # 修改成绩
         lesson_record = common.get_lesson_record(lesson_name, student_qq)
         if lesson_record != None:

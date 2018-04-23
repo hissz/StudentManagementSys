@@ -16,9 +16,9 @@ def get_student_by_qq(student_qq):
 
 def get_lesson(lesson_name):
     """通过班级名称获取班级信息"""
-    Lesson = session.query(orm.Lesson).filter(
+    lesson = session.query(orm.Lesson).filter(
         orm.Lesson.name == lesson_name).first()
-    return Lesson
+    return lesson
 
 
 def get_lesson_record(lesson_name, student_qq):
@@ -27,7 +27,7 @@ def get_lesson_record(lesson_name, student_qq):
     student = get_student_by_qq(student_qq)
     if lesson != None and student != None:
         lesson_record = session.query(orm.LessonRecord).filter(
-            orm.LessonRecord.Lesson == lesson,
+            orm.LessonRecord.lesson == lesson,
             orm.LessonRecord.student == student,
         ).first()
         return lesson_record

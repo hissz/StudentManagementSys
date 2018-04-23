@@ -11,13 +11,12 @@ def student_view():
     qq = input("请输入学生qq号：")
     student = Student(qq)
     while True:
-        choice = input("1.交作业，2.查成绩，3.看排名")
+        choice = input("1.交作业，2.查成绩，3.看排名,4返回")
         if choice == "1":
             lesson_name = input("课程名称:")
-            lesson_date = input("上课日期（2018-02-03）：")
-            ret = student.submit_task(lesson_name, lesson_date)
+            ret = student.submit_task(lesson_name)
             print(ret)
-        elif choice =="2" :
+        elif choice =="2":
             lesson_name = input("课程名称:")
             ret=student.get_score(lesson_name)
             print(ret)
@@ -25,6 +24,8 @@ def student_view():
             lesson_name = input("课程名称:")
             ret = student.get_rank(lesson_name)
             print(ret)
+        elif choice == "4":
+            main()
         else:
             print("请输入正确的选项")
 
@@ -50,9 +51,8 @@ def teacher_view():
         elif choice=="4":
             qq = input("请输入学生qq号：")
             lesson_name = input("课程名称:")
-            date = input("上课时间：")
             score = input("成绩:")
-            ret = teacher.modify_score(lesson_name, qq, date, score)
+            ret = teacher.modify_score(lesson_name, qq, score)
             print(ret)
         elif choice=="5":
             main()

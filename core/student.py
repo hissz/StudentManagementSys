@@ -15,11 +15,10 @@ class Student(object):
     def get_qq(self):
         return database.get_qq()
 
-    def submit_task(self, lesson_name, lesson_date):
+    def submit_task(self, lesson_name):
         # 提交作业
         lesson_record = common.get_lesson_record(lesson_name, self.qq)
         if lesson_record != None:
-            lesson_record.task_status = 1
             session.commit()
             return True
         else:
